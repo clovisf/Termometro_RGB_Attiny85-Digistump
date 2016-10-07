@@ -1,4 +1,4 @@
-#include <Adafruit_NeoPixel.h>  
+#include <Adafruit_NeoPixel.h>  //
  #ifdef __AVR__  
   #include <avr/power.h>  
  #endif  
@@ -15,7 +15,7 @@
    
  Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);  
    
- int delayval = 500; // delay  
+ int delayval = 333; // delay  
    
  void setup() {  
    pixels.begin(); // This initializes the NeoPixel library.  
@@ -31,11 +31,11 @@
      sensorValue = (analogRead(sensorPin)- 194.3197) / 13.2447;
       
      if (sensorValue < 20){ //from total blue to green
-      Blue = map(sensorValue, 0, 19.99, 255, 0);
+      Blue = 255;
       Green = map(sensorValue, 0, 19.99, 0, 255);
       Red = 0;
      }
-     if ((sensorValue >= 20) &&(sensorValue < 30)) { // from green to yellow
+     if ((sensorValue >= 0) &&(sensorValue < 30)) { // from green to yellow
      Green = 255;
      Red = map(sensorValue, 20, 29.99, 0, 255); 
      Blue = 0;
